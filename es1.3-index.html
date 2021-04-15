@@ -1,105 +1,154 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Project Name</title>    
-        <link href="es1.3-style.css" rel="stylesheet" type="text/css">
-    </head>
-    <body class="parallax">
-        <header id="navbar">
-            <div class="title">
-                <h1>Project Name</h1>
-            </div>
-            <div class="menu">
-                <a href="#main">Main</a>
-                <a href="#r1">First</a>
-                <a href="#r2">Second</a>
-                <input type=""  name="search">
-            </div>
-        </header>
-        <div id="page">
-            <div id="content">
-                <div  class="row">
+
+<head>
+    <title>Project Name</title>
+    <link href="es1.3-style.css" id="stylesheet" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+
+        let stylesheetLink = document.getElementById("stylesheet");
+        let sheets = {
+            'dark': 'es1.3-style-dark.css',
+            'light': 'es1.3-style.css',
+        }
+
+        window.onload = () => {
+            let switchButton = document.getElementById("switch");
+            let cachedStylesheet = localStorage.getItem("stylesheet");
+            if (cachedStylesheet != null) {
+                stylesheetLink.href = sheets[cachedStylesheet];
+                switchButton.className = cachedStylesheet;
+            }
+        }
+
+        function fswitch(element) {
+            if (element.className == 'dark') {
+                element.className = 'light';
+                stylesheetLink.href = sheets['light'];
+                localStorage.setItem("stylesheet", 'light');
+            } else {
+                element.className = 'dark';
+                stylesheetLink.href = sheets['dark'];
+                localStorage.setItem("stylesheet", 'dark');
+            }
+        }
+
+    </script>
+</head>
+
+<body class="parallax">
+    <header id="navbar">
+        <div class="title">
+            <h1>Project Name</h1>
+        </div>
+        <div class="menu">
+            <a href="#main">Main</a>
+            <a href="#r1">First</a>
+            <a href="#r2">Second</a>
+            <input type="" name="search">
+            <button id="switch" class="light" onclick="fswitch(this)"></button>
+        </div>
+    </header>
+    <div id="page">
+        <div id="content">
+            <div class="row">
                 <div class="cardMain standard-border col-1" id="main">
                     <h2>Main Content</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                        cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                        Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices
+                        lobortis hendrerit.</p>
                     <div>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
-                     </div>
-                </div>
-            </div>
-                <div class="row" id="r1">
-                    <div class="Heading standard-border col-2">
-                        <h2>Heading1</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
-                    </div>
-                     <div class="Heading standard-border col-2">
-                        <h2>Heading2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
-                    </div>
-                </div>
-                <div class="row" id="r2">
-                    <div class="Heading standard-border col-3">
-                        <h2>Heading3</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
-                    </div>
-                    <div class="Heading standard-border col-3">
-                        <h2>Heading2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
-                    </div>
-                    <div class="Heading standard-border col-3">
-                        <h2>Heading4</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris. Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices lobortis hendrerit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                            cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                            Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam
+                            ultrices lobortis hendrerit.</p>
                     </div>
                 </div>
             </div>
-            <aside id="sidebar" class="row">
-                <h1>SideBar</h1>
-                    <div class="row">
-                        <div class="clock">
-                            <div id="hours"></div>
-                            <div id="minutes"></div>
-                            <div id="seconds"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" class="sidebarPics">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" class="sidebarPics">
-                    </div>
-                    <div class="row">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" class="sidebarPics">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png" class="sidebarPics">
-                    </div>
-            </aside>
+            <div class="row" id="r1">
+                <div class="Heading standard-border col-2">
+                    <h2>Heading1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                        cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                        Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices
+                        lobortis hendrerit.</p>
+                </div>
+                <div class="Heading standard-border col-2">
+                    <h2>Heading2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                        cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                        Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices
+                        lobortis hendrerit.</p>
+                </div>
+            </div>
+            <div class="row" id="r2">
+                <div class="Heading standard-border col-3">
+                    <h2>Heading3</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                        cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                        Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices
+                        lobortis hendrerit.</p>
+                </div>
+                <div class="Heading standard-border col-3">
+                    <h2>Heading2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                        cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                        Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices
+                        lobortis hendrerit.</p>
+                </div>
+                <div class="Heading standard-border col-3">
+                    <h2>Heading4</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies nunc ac dapibus
+                        cursus. Mauris at orci enim. Duis nec lectus vestibulum, porta odio non, accumsan mauris.
+                        Curabitur ac elit leo. Nulla non fringilla velit. Pellentesque nec posuere elit. Nam ultrices
+                        lobortis hendrerit.</p>
+                </div>
+            </div>
         </div>
-        <script>
-            function setTime(){
-                var date = new Date;
-                var seconds = date.getSeconds();
-                var minutes = date.getMinutes();
-                var hours = date.getHours();
+        <aside id="sidebar" class="row">
+            <h1>SideBar</h1>
+            <div class="row">
+                <div class="clock">
+                    <div id="hours"></div>
+                    <div id="minutes"></div>
+                    <div id="seconds"></div>
+                </div>
+            </div>
+            <div class="row">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png"
+                    class="sidebarPics">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png"
+                    class="sidebarPics">
+            </div>
+            <div class="row">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png"
+                    class="sidebarPics">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png"
+                    class="sidebarPics">
+            </div>
+        </aside>
+    </div>
+    <script>
+        function setTime() {
+            var date = new Date;
+            var seconds = date.getSeconds();
+            var minutes = date.getMinutes();
+            var hours = date.getHours();
 
-                var angleh = (hours * 30) + (minutes / 2);
-                var anglem = minutes * 6;
-                var angles = seconds * 6;
+            var angleh = (hours * 30) + (minutes / 2);
+            var anglem = minutes * 6;
+            var angles = seconds * 6;
 
-  
-  document.getElementById('hours').style.transform = 'rotateZ('+ angleh +'deg)';
-  document.getElementById('minutes').style.transform = 'rotateZ('+ anglem +'deg)';
-  document.getElementById('seconds').style.transform = 'rotateZ('+ angles +'deg)';
-            
+
+            document.getElementById('hours').style.transform = 'rotateZ(' + angleh + 'deg)';
+            document.getElementById('minutes').style.transform = 'rotateZ(' + anglem + 'deg)';
+            document.getElementById('seconds').style.transform = 'rotateZ(' + angles + 'deg)';
+
             window.setTimeout(setTime, 1000);
-            }
-            setTime();
-        </script>
-    </body>
+        }
+        setTime();
+    </script>
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
